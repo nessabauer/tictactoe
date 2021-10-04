@@ -3,6 +3,7 @@ Tic Tac Toe Player
 """
 
 import math
+import copy
 
 X = "X"
 O = "O"
@@ -107,16 +108,16 @@ def terminal(board):
 
     # verificando se há um ganhador
     if winner(board) != None:
-        return true
+        return True
     else:
         # varrendo o array na busca de posições vazias, se tiver jogo não terminou
         for i in range(3):
             for j in range(3):
                 if board[i][j] == EMPTY:
-                    return false
+                    return False
 
     # não tendo mais posições vazias nem ganhador jogo terminou
-    return true
+    return True
 
 def utility(board):
     """
@@ -151,7 +152,7 @@ def minimax(board):
             v_maximo = float('inf')
             for possibilidades in actions(board):
                 i = valorMaximo(result(board, possibilidades))
-                if i < v_maximov_minimo:
+                if i < v_maximo:
                     v_maximo = i
                     movimento = possibilidades
 
